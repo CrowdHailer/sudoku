@@ -2,9 +2,14 @@ class Cell
 	def initialize position
 		@value
 		@position = position
+		@row = get_row_index position
 	end
 	
-	attr_accessor :value, :position
+	attr_accessor :value, :position, :row
+
+	def get_row_index position
+		position / 9
+	end
 	# attr_reader :allowed_values, :areas
 
 	# def solved?

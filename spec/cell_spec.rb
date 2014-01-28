@@ -2,14 +2,31 @@ require './lib/cell'
 
 describe Cell do
 	
-	let(:cell) { Cell.new 0}
+	let(:cell0) { Cell.new 0}
+	let(:cell18) { Cell.new 17 }
 
 	it 'shold be initialised with no value' do
-		expect(cell.value).to be_nil
+		expect(cell0.value).to be_nil
 	end
 
 	it 'shold be initialised with a position' do
-		expect(cell.position).to eq(0)
+		expect(cell0.position).to eq(0)
+	end
+
+	it 'should know its row number' do
+		expect(cell0.row).to eq(0)
+	end
+
+	it 'should know its row number' do
+		expect(cell18.row).to eq(1)
+	end
+
+	it 'should know its column number' do
+		expect(cell0.col).to eq(0)
+	end
+
+	it 'should know its column number' do
+		expect(cell18.col).to eq(8)
 	end
 
 	# it 'should be possible to set a value' do
