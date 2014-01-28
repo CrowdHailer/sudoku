@@ -46,4 +46,10 @@ describe Cell do
 			expect(cell.value).to eq(1)
 		end
 	end
+
+	context 'one row of three' do
+		let(cell1) {double :cell, value: 2}
+		let(row) { double :row }
+
+	end
 end
