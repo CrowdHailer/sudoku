@@ -15,6 +15,10 @@ describe Grid do
 		it 'should not be solved' do
 			expect(grid).not_to be_solved
 		end
+
+		it 'should create 4 area objects in rows' do
+			expect(grid.rows).to eq(3)
+		end
 	end
 
 	context 'solvable grid - requires working with tested cell class' do

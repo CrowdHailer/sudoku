@@ -1,6 +1,6 @@
 class Grid
 	def initialize order
-		@cells = Array.new(order**4) { Cell.new [], (1..9) }
+		@cells = Array.new(order**4) { Cell.new [], (1..order**2) }
 	end
 
 	attr_reader :cells
