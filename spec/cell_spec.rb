@@ -61,12 +61,20 @@ describe Cell do
 			expect(cell.remaining_values).to eq([1,2])
 		end
 
+		it 'should return false if value did not update' do
+			expect(cell.update).to be_false
+		end
+
 		let(:solvable_row) { double :row, cell_values: [2,3] }
 		let(:solvable_cell) { Cell.new([solvable_row],(1..3))}
 
 		it 'should update value if remaining values has only one entry' do
 			solvable_cell.update
 			expect(solvable_cell.value).to eq(1)
+		end
+
+		it 'should return true if value did update' do
+			expect(solvable_cell.update).to be_true
 		end
 
 	end
