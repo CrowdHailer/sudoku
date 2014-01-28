@@ -16,9 +16,19 @@ describe Grid do
 			expect(grid).not_to be_solved
 		end
 
+		it 'should be possible to populate the grid' do
+			grid.populate("1"*81)
+			expect(grid.cells[0].value).to eq(1)
+		end
+
 	# 	it 'should create 4 area objects in rows' do
 	# 		expect(grid.rows).to eq(3)
 	# 	end
+	 end
+
+	 context 'solved grid'do
+	 	let(:puzzle) { '1'*81 }
+	 	let(:grid) { }
 	 end
 
 	# context 'solvable grid - requires working with tested cell class' do

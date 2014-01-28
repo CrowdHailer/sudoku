@@ -5,13 +5,13 @@ class Grid
 
 	attr_reader :cells
 
-	# def populate puzzle_string
-	# 	puzzle = puzzle_string.chars
-	# 	self.cells.each.with_index do |cell, i|
-	# 		puzzle_value = puzzle[i].to_i
-	# 		cell.value = (puzzle_value == 0) ? nil : puzzle_value
-	# 	end
-	# end
+	def populate puzzle_string
+		puzzle = puzzle_string.chars
+		self.cells.each.with_index do |cell, i|
+			puzzle_value = puzzle[i].to_i
+			cell.value = (puzzle_value == 0) ? nil : puzzle_value
+		end
+	end
 
 	def unsolved_cells 
 		cells
