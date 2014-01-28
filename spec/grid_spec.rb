@@ -26,9 +26,17 @@ describe Grid do
 	# 	end
 	 end
 
-	 context 'solved grid'do
+	 context 'full grid'do
 	 	let(:puzzle) { '1'*81 }
-	 	let(:grid) { }
+	 	let(:grid) do
+	 		this_grid = Grid.new
+	 		this_grid.populate(puzzle)
+	 		this_grid
+	 	end
+
+	 	it 'should have 0 unsolved cells' do
+	 		expect(grid.unsolved_cells).to eq([])
+	 	end
 	 end
 
 	# context 'solvable grid - requires working with tested cell class' do

@@ -14,7 +14,7 @@ class Grid
 	end
 
 	def unsolved_cells 
-		cells
+		cells.reject{ |cell| cell.solved? }
 	end
 
 	def solved?
