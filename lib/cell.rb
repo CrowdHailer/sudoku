@@ -13,10 +13,14 @@ class Cell
 	end
 
 	def remaining_values
-		[1]
+		taken_values = []
+		areas.each do |area|
+			taken_values += area.cell_values
+		end
+		allowed_values - taken_values
 	end
 
-	def update_value
+	def update
 		self.value = remaining_values.first if remaining_values.count == 1
 	end
 

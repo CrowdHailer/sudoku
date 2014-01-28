@@ -42,14 +42,32 @@ describe Cell do
 		end
 
 		it 'should update value when only one value remains' do
-			cell.update_value
+			cell.update
 			expect(cell.value).to eq(1)
 		end
 	end
 
 	context 'one row of three' do
-		let(cell1) {double :cell, value: 2}
-		let(row) { double :row }
+		let(:row) { double :row, cell_values: [3] }
+		let(:cell) { Cell.new([row],(1..3))}
+
+		it 'should call the cell_values method on every area it is a member of' do
+			expect(row).to receive(:cell_values)
+			cell.update
+		end
+
+		it 'should not update value if remaining values has more than 1 entry' do
+			cell.update
+			expect(cell.remaining_values).to eq([1,2])
+		end
+
+		let(:solvable_row) { double :row, cell_values: [2,3] }
+		let(:solvable_cell) { Cell.new([solvable_row],(1..3))}
+
+		it 'should update value if remaining values has only one entry' do
+			solvable_cell.update
+			expect(solvable_cell.value).to eq(1)
+		end
 
 	end
 end
