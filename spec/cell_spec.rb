@@ -2,7 +2,7 @@ require './lib/cell'
 
 describe Cell do
 	
-	let(:cell) { Cell.new }
+	let(:cell) { Cell.new []}
 
 	it 'shold be initialised with no value' do
 		expect(cell.value).to be_nil
@@ -23,7 +23,16 @@ describe Cell do
 	end
 
 	it 'should be initialised with allowed values' do
-		cell = Cell.new((1..9))
+		cell = Cell.new([], (1..9))
 		expect(cell.allowed_values).to eq((1..9).to_a)
+	end
+
+	it 'should know what areas it belongs too' do
+		expect(cell.areas).to eq([])
+	end
+
+	it 'should be initialised with areas' do
+		cell = Cell.new([:row,:col,:block],(1..4))
+		expect(cell.areas).to eq([:row,:col,:block])
 	end
 end
