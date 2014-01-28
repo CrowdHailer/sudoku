@@ -20,4 +20,13 @@ class Grid
 	def solved?
 		unsolved_cells.count == 0
 	end
+
+	def inspect
+		rows = cells.each_slice(9).to_a
+		rows = rows.map { |e| e.map { |e| e.value || 0 }}
+		strings = rows.map{|e| "|" + e.join(",") + "|"}
+
+		"-"*19 +"\n" + strings.join("\n") + "\n" + "-"*19
+		
+	end
 end

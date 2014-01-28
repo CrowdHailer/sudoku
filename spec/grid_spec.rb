@@ -21,9 +21,6 @@ describe Grid do
 			expect(grid.cells[0].value).to eq(1)
 		end
 
-	# 	it 'should create 4 area objects in rows' do
-	# 		expect(grid.rows).to eq(3)
-	# 	end
 	 end
 
 	 context 'full grid'do
@@ -43,22 +40,30 @@ describe Grid do
 	 	end
 	 end
 
-	# context 'solvable grid - requires working with tested cell class' do
-	# 	let(:puzzle) { '015003002000100906270068430490002017501040380003905000900081040860070025037204600'}
-	# 	let(:grid) { Grid.new 3 }
+	context 'solvable grid - requires working with tested cell class' do
+		let(:puzzle) { '015003002000100906270068430490002017501040380003905000900081040860070025037204600'}
+		let(:grid) do
+	 		this_grid = Grid.new
+	 		this_grid.populate(puzzle)
+	 		this_grid
+	 	end
 
-	# 	it 'should be possible to initalize a Grid' do
-	# 		expect(grid.populate(puzzle)).to be_true
-	# 	end
+		it 'should be possible to initalize a Grid' do
+			expect(grid.populate(puzzle)).to be_true
+		end
 
-	# 	it 'should create a cell without value first' do
-	# 		grid.populate(puzzle)
-	# 		expect(grid.cells[0].value).to eq(nil)
-	# 	end
+		it 'should create a cell without value first' do
+			grid.populate(puzzle)
+			expect(grid.cells[0].value).to eq(nil)
+		end
 
-	# 	it 'should create a second cell with a value of 1' do
-	# 		grid.populate(puzzle)
-	# 		expect(grid.cells[1].value).to eq(1)
-	# 	end
-	# end
+		it 'should create a second cell with a value of 1' do
+			grid.populate(puzzle)
+			expect(grid.cells[1].value).to eq(1)
+		end
+
+		it 'should be possible to inspect' do
+			expect(grid.inspect).to eq(1)
+		end
+	end
 end
