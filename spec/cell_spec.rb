@@ -17,4 +17,8 @@ describe Cell do
 		cell.value = 5
 		expect(cell).to be_solved
 	end
+
+	it 'should be initialised with allowed values' do
+		expect(cell.allowed_values).to eq([1])
+	end
 end
