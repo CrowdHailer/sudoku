@@ -13,8 +13,7 @@ class Cell
 	end
 
 	def remaining_values
-		taken_values = []
-		areas.each do |area|
+		taken_values = areas.inject([]) do |taken_values, area|
 			taken_values += area.cell_values
 		end
 		allowed_values - taken_values
@@ -23,6 +22,5 @@ class Cell
 	def update
 		self.value = remaining_values.first if remaining_values.count == 1
 	end
-
 
 end
