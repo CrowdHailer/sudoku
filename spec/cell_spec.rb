@@ -18,7 +18,12 @@ describe Cell do
 		expect(cell).to be_solved
 	end
 
-	it 'should be initialised with allowed values' do
+	it 'should be initialised with allowed values, default 1' do
 		expect(cell.allowed_values).to eq([1])
+	end
+
+	it 'should be initialised with allowed values' do
+		cell = Cell.new((1..9))
+		expect(cell.allowed_values).to eq((1..9).to_a)
 	end
 end

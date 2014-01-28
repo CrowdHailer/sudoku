@@ -1,6 +1,6 @@
 class Cell
 	def initialize allowed_values = [1]
-		@allowed_values = allowed_values
+		@allowed_values = allowed_values.to_a
 		@value
 	end
 	
