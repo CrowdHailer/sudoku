@@ -62,6 +62,10 @@ describe Grid do
 			expect(grid.cells[1].value).to eq(1)
 		end
 
+		it 'should set up neighbour relations in cells' do |variable|
+			expect(grid.cells[0].neighbours.count).to eq(21)
+		end
+
 		it 'should be possible to inspect' do
 			expect(grid.inspect).to eq("-------------------\n|0,1,5,0,0,3,0,0,2|\n|0,0,0,1,0,0,9,0,6|\n|2,7,0,0,6,8,4,3,0|\n|4,9,0,0,0,2,0,1,7|\n|5,0,1,0,4,0,3,8,0|\n|0,0,3,9,0,5,0,0,0|\n|9,0,0,0,8,1,0,4,0|\n|8,6,0,0,7,0,0,2,5|\n|0,3,7,2,0,4,6,0,0|\n-------------------")
 		end

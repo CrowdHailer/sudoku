@@ -38,9 +38,9 @@ class Cell
 		ALLOWED_VALUES - taken_values.compact
 	end
 
-	# def update
-	# 	self.value = remaining_values.first if remaining_values.count == 1
-	# end
+	def update
+		self.value = remaining_values.first if remaining_values.count == 1
+	end
 
 	def to_s
 		"Cell at #{position}"
