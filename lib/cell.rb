@@ -3,12 +3,17 @@ class Cell
 		@value
 		@position = position
 		@row = get_row_index position
+		@column = get_column_index position
 	end
 	
-	attr_accessor :value, :position, :row
+	attr_accessor :value, :position, :row, :column
 
 	def get_row_index position
 		position / 9
+	end
+
+	def get_column_index position
+		position % 9
 	end
 	# attr_reader :allowed_values, :areas
 

@@ -22,11 +22,11 @@ describe Cell do
 	end
 
 	it 'should know its column number' do
-		expect(cell0.col).to eq(0)
+		expect(cell0.column).to eq(0)
 	end
 
 	it 'should know its column number' do
-		expect(cell18.col).to eq(8)
+		expect(cell18.column).to eq(8)
 	end
 
 	# it 'should be possible to set a value' do
