@@ -29,6 +29,14 @@ describe Cell do
 		expect(cell18.column).to eq(8)
 	end
 
+	it 'should know its box coords' do
+		expect(cell0.box_coords).to eq([0,0])
+	end
+
+	it 'should know its box coords' do
+		expect(cell18.box_coords).to eq([0,2])
+	end
+
 	# it 'should be possible to set a value' do
 	# 	cell.value = 3
 	# 	expect(cell.value).to eq(3)

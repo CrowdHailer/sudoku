@@ -15,6 +15,10 @@ class Cell
 	def get_column_index position
 		position % 9
 	end
+
+	def box_coords
+		[row/3, column/3]
+	end
 	# attr_reader :allowed_values, :areas
 
 	# def solved?
