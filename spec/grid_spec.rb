@@ -17,6 +17,22 @@ describe Grid do
 		end
 	end
 
-	context 'solved grid' do
+	context 'solvable grid - requires working with tested cell class' do
+		let(:puzzle) { '015003002000100906270068430490002017501040380003905000900081040860070025037204600'}
+		let(:grid) { Grid.new 3 }
+
+		it 'should be possible to initalize a Grid' do
+			expect(grid.populate(puzzle)).to be_true
+		end
+
+		it 'should create a cell without value first' do
+			grid.populate(puzzle)
+			expect(grid.cells[0].value).to eq(nil)
+		end
+
+		it 'should create a second cell with a value of 1' do
+			grid.populate(puzzle)
+			expect(grid.cells[1].value).to eq(1)
+		end
 	end
 end
