@@ -35,4 +35,15 @@ describe Cell do
 		cell = Cell.new([:row,:col,:block],(1..4))
 		expect(cell.areas).to eq([:row,:col,:block])
 	end
+
+	context 'one cell sudoku' do
+		it 'should return possible values' do
+			expect(cell.remaining_values).to eq([1])
+		end
+
+		it 'should update value when only one value remains' do
+			cell.update_value
+			expect(cell.value).to eq(1)
+		end
+	end
 end

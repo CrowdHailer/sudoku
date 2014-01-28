@@ -12,4 +12,13 @@ class Cell
 		value
 	end
 
+	def remaining_values
+		[1]
+	end
+
+	def update_value
+		self.value = remaining_values.first if remaining_values.count == 1
+	end
+
+
 end
