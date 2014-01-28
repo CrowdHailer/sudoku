@@ -4,17 +4,17 @@ describe Grid do
 	 context 'Empty Grid' do
 	 	let(:grid) { Grid.new }
 
-		it 'should have n to the 4th cells' do
+		it 'should have 81 cells' do
 			expect(grid.cells.count).to eq(81)
 		end
 
-	# 	it 'should have 16 unsolved cells' do
-	# 		expect(grid.unsolved_cells.count).to eq(16)
-	# 	end
+		it 'should have 81 unsolved cells' do
+			expect(grid.unsolved_cells.count).to eq(81)
+		end
 
-	# 	it 'should not be solved' do
-	# 		expect(grid).not_to be_solved
-	# 	end
+		it 'should not be solved' do
+			expect(grid).not_to be_solved
+		end
 
 	# 	it 'should create 4 area objects in rows' do
 	# 		expect(grid.rows).to eq(3)

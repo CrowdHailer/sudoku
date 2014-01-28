@@ -13,11 +13,11 @@ class Grid
 	# 	end
 	# end
 
-	# def unsolved_cells 
-	# 	cells
-	# end
+	def unsolved_cells 
+		cells
+	end
 
-	# def solved?
-	# 	false
-	# end
+	def solved?
+		false
+	end
 end
