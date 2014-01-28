@@ -2,13 +2,13 @@ require './lib/grid'
 
 describe Grid do
 	context 'Empty Grid' do
-		let(:grid) { Grid.new }
+		let(:grid) { Grid.new 3 }
 
-		it 'should have 81 cells' do
+		it 'should have n to the 4th cells' do
 			expect(grid.cells.count).to eq(81)
 		end
 
-		it 'should have 81 unsolved cells' do
+		it 'should have 16 unsolved cells' do
 			expect(grid.unsolved_cells.count).to eq(81)
 		end
 

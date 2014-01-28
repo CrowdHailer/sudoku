@@ -1,6 +1,6 @@
 class Grid
-	def initialize
-		@cells = [:cells]*81
+	def initialize order
+		@cells = [:cells]* (order**4)
 	end
 
 	attr_reader :cells
