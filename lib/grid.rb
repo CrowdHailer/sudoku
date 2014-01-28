@@ -8,4 +8,8 @@ class Grid
 	def unsolved_cells 
 		cells
 	end
+
+	def solved?
+		false
+	end
 end

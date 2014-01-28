@@ -10,4 +10,8 @@ describe Grid do
 	it 'should have 81 unsolved cells' do
 		expect(grid.unsolved_cells.count).to eq(81)
 	end
+
+	it 'should not be solved' do
+		expect(grid).not_to be_solved
+	end
 end
