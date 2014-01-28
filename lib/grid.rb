@@ -1,6 +1,6 @@
 class Grid
 	def initialize
-		@cells = Array.new(81) {|i| Cell.new i }
+		@cells = Array.new(81) {|i| Cell.new self, i }
 	end
 
 	attr_reader :cells
