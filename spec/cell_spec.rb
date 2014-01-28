@@ -60,4 +60,12 @@ describe Cell do
 		expect(cell4.neighbours).to eq([cell0, cell3])
 	end
 
+	it 'should return remaining possible values' do
+		grid2 = double :grid, cells: [cell0, cell3, cell17]
+		cell4 = Cell.new(grid2, 4)
+		cell4.meet_neighbours
+		cell0.value = 7
+		expect(cell4.remaining_values).to eq((1..9).to_a - [7])
+	end
+
 end

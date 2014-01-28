@@ -1,5 +1,5 @@
 class Cell
-	# allowed_values = (1..9).to_a
+	ALLOWED_VALUES = (1..9).to_a
 
 	def initialize grid, position
 		@value
@@ -33,10 +33,10 @@ class Cell
 		end
 	end
 
-	# def remaining_values
-	# 	taken_values = neighbours.map { |e| e.value }
-	# 	allowed_values - taken_values
-	# end
+	def remaining_values
+		taken_values = neighbours.map { |e| e.value }
+		ALLOWED_VALUES - taken_values.compact
+	end
 
 	# def update
 	# 	self.value = remaining_values.first if remaining_values.count == 1
