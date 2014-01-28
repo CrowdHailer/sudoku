@@ -18,6 +18,6 @@ class Grid
 	end
 
 	def solved?
-		false
+		unsolved_cells.count == 0
 	end
 end

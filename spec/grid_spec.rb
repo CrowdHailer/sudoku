@@ -37,6 +37,10 @@ describe Grid do
 	 	it 'should have 0 unsolved cells' do
 	 		expect(grid.unsolved_cells).to eq([])
 	 	end
+
+	 	it 'should be solved' do
+	 		expect(grid).to be_solved
+	 	end
 	 end
 
 	# context 'solvable grid - requires working with tested cell class' do
