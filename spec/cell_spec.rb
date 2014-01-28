@@ -37,15 +37,15 @@ describe Cell do
 		expect(cell18.box_coords).to eq([0,2])
 	end
 
-	# it 'should be possible to set a value' do
-	# 	cell.value = 3
-	# 	expect(cell.value).to eq(3)
-	# end
+	it 'should be possible to set a value' do
+		cell0.value = 3
+		expect(cell0.value).to eq(3)
+	end
 
-	# it 'should be solved if has a value' do
-	# 	cell.value = 5
-	# 	expect(cell).to be_solved
-	# end
+	it 'should be solved if has a value' do
+		cell0.value = 5
+		expect(cell0).to be_solved
+	end
 
 	# it 'should be initialised with allowed values, default 1' do
 	# 	expect(cell.allowed_values).to eq([1])
