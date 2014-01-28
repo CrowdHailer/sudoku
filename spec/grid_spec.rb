@@ -1,12 +1,12 @@
 require './lib/grid'
 
 describe Grid do
-	# context 'Empty Grid' do
-	# 	let(:grid) { Grid.new 2 }
+	 context 'Empty Grid' do
+	 	let(:grid) { Grid.new }
 
-	# 	it 'should have n to the 4th cells' do
-	# 		expect(grid.cells.count).to eq(16)
-	# 	end
+		it 'should have n to the 4th cells' do
+			expect(grid.cells.count).to eq(81)
+		end
 
 	# 	it 'should have 16 unsolved cells' do
 	# 		expect(grid.unsolved_cells.count).to eq(16)
@@ -19,7 +19,7 @@ describe Grid do
 	# 	it 'should create 4 area objects in rows' do
 	# 		expect(grid.rows).to eq(3)
 	# 	end
-	# end
+	 end
 
 	# context 'solvable grid - requires working with tested cell class' do
 	# 	let(:puzzle) { '015003002000100906270068430490002017501040380003905000900081040860070025037204600'}

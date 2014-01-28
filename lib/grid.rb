@@ -1,23 +1,23 @@
 class Grid
-	def initialize order
-		@cells = Array.new(order**4) { Cell.new [], (1..order**2) }
+	def initialize
+		@cells = Array.new(81) {|i| Cell.new i }
 	end
 
 	attr_reader :cells
 
-	def populate puzzle_string
-		puzzle = puzzle_string.chars
-		self.cells.each.with_index do |cell, i|
-			puzzle_value = puzzle[i].to_i
-			cell.value = (puzzle_value == 0) ? nil : puzzle_value
-		end
-	end
+	# def populate puzzle_string
+	# 	puzzle = puzzle_string.chars
+	# 	self.cells.each.with_index do |cell, i|
+	# 		puzzle_value = puzzle[i].to_i
+	# 		cell.value = (puzzle_value == 0) ? nil : puzzle_value
+	# 	end
+	# end
 
-	def unsolved_cells 
-		cells
-	end
+	# def unsolved_cells 
+	# 	cells
+	# end
 
-	def solved?
-		false
-	end
+	# def solved?
+	# 	false
+	# end
 end
