@@ -48,11 +48,6 @@ describe Cell do
 		expect(cell0).to be_solved
 	end
 
-	# it 'should populate neighbours with all cells that match box, row or column' do
-	# 	expect(grid).to receive(:cells)
-	# 	cell0.meet_neighbours
-	# end
-
 	it 'should limit to neighbours that it shares a position with' do
 		grid2 = double :grid, cells: [cell0, cell3, cell17]
 		cell4 = Cell.new(grid2, 4)
@@ -66,6 +61,11 @@ describe Cell do
 		cell4.meet_neighbours
 		cell0.value = 7
 		expect(cell4.remaining_values).to eq((1..9).to_a - [7])
+	end
+
+	it 'should raise and error if no values remain' do
+		cell0.stub(:remaining_values){ [] }
+		expect{ cell0.update }.to raise_error
 	end
 
 end

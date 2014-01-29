@@ -2,7 +2,6 @@ class Cell
 	ALLOWED_VALUES = (1..9).to_a
 
 	def initialize grid, position
-		@value
 		@grid = grid
 		@position = position
 		@neighbours = []
@@ -38,7 +37,9 @@ class Cell
 	end
 
 	def update
-		self.value = remaining_values.first if remaining_values.count == 1
+		candidates = remaining_values.count
+		raise 'No possible values left' if candidates == 0
+		self.value = remaining_values.first if candidates == 1
 	end
 
 	def to_s
