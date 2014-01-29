@@ -1,29 +1,25 @@
 class Grid
 	def initialize
-		@cells = Array.new(81) {|i| Cell.new self, i }
-		cells.each {|cell| cell.meet_neighbours}
+		@cells = Array.new(81) { |i| Cell.new self, i }
+		cells.each { |cell| cell.meet_neighbours }
 	end
 
 	attr_reader :cells
 
-	def populate puzzle_string
-		puzzle = puzzle_string.chars
-		self.cells.each.with_index do |cell, i|
-			puzzle_value = puzzle[i].to_i
-			cell.value = (puzzle_value == 0) ? nil : puzzle_value
+	def populate puzzle
+		cells.zip(puzzle.chars) do |cell, value|
+			cell.value = (value != "0") ? value.to_i : nil
 		end
 	end
 
 	def solve
 		while !solved?
-			unsolved_cells.each do |cell|
-				cell.update
-			end
+			unsolved_cells.each { |cell| cell.update }
 		end
 	end
 
 	def unsolved_cells 
-		cells.reject{ |cell| cell.solved? }
+		cells.reject { |cell| cell.solved? }
 	end
 
 	def solved?

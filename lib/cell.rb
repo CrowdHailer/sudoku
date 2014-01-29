@@ -34,8 +34,7 @@ class Cell
 	end
 
 	def remaining_values
-		taken_values = neighbours.map { |e| e.value }
-		ALLOWED_VALUES - taken_values.compact
+		ALLOWED_VALUES - neighbours.map { |e| e.value }
 	end
 
 	def update

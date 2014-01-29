@@ -48,10 +48,6 @@ describe Grid do
 	 		this_grid
 	 	end
 
-		it 'should be possible to initalize a Grid' do
-			expect(grid.populate(puzzle)).to be_true
-		end
-
 		it 'should create a cell without value first' do
 			grid.populate(puzzle)
 			expect(grid.cells[0].value).to eq(nil)
