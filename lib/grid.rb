@@ -13,17 +13,27 @@ class Grid
 	end
 
 	def solve
-		while !solved?
+		stuck = false
+		while !solved? && !stuck
+			starting_number = unsolved_count
 			unsolved_cells.each { |cell| cell.update }
+			progress = starting_number - unsolved_count
+			stuck = (progress == 0)
 		end
+		puts 'stuck' unless solved?
+		false
 	end
 
 	def unsolved_cells 
 		cells.reject { |cell| cell.solved? }
 	end
 
+	def unsolved_count
+		unsolved_cells.count
+	end
+
 	def solved?
-		unsolved_cells.count == 0
+		unsolved_count == 0
 	end
 
 	def to_s
@@ -32,9 +42,9 @@ class Grid
 
 	def inspect
 		rows = cells.each_slice(9).to_a
-		rows = rows.map { |e| e.map { |e| e.value || 0 }}
-		strings = rows.map{|e| "|" + e.join(",") + "|"}
+		rows = rows.map { |e| e.map { |e| e.value || " " } }
+		strings = rows.map { |e| "|" + e.join(",") + "|" }
 
-		"-"*19 +"\n" + strings.join("\n") + "\n" + "-"*19
+		"\n+" + "-"*17 +"+\n" + strings.join("\n") + "\n+" + "-"*17 + "+"
 	end
 end

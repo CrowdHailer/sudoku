@@ -21,6 +21,10 @@ describe Grid do
 			expect(grid.cells[0].value).to eq(1)
 		end
 
+		it 'should run stop running if not possible to solve' do
+			expect(grid.solve).to eq(false)
+		end
+
 	 end
 
 	 context 'full grid'do
@@ -63,7 +67,7 @@ describe Grid do
 		end
 
 		it 'should be possible to inspect' do
-			expect(grid.inspect).to eq("-------------------\n|0,1,5,0,0,3,0,0,2|\n|0,0,0,1,0,0,9,0,6|\n|2,7,0,0,6,8,4,3,0|\n|4,9,0,0,0,2,0,1,7|\n|5,0,1,0,4,0,3,8,0|\n|0,0,3,9,0,5,0,0,0|\n|9,0,0,0,8,1,0,4,0|\n|8,6,0,0,7,0,0,2,5|\n|0,3,7,2,0,4,6,0,0|\n-------------------")
+			expect(grid.inspect).to eq("-------------------\n| ,1,5, , ,3, , ,2|\n| , , ,1, , ,9, ,6|\n|2,7, , ,6,8,4,3, |\n|4,9, , , ,2, ,1,7|\n|5, ,1, ,4, ,3,8, |\n| , ,3,9, ,5, , , |\n|9, , , ,8,1, ,4, |\n|8,6, , ,7, , ,2,5|\n| ,3,7,2, ,4,6, , |\n-------------------")
 		end
 
 		it 'should be able to solve the puzzle' do
