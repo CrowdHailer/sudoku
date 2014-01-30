@@ -33,7 +33,6 @@ class Grid
 			test = Grid.new
 			test.populate self.to_s
 			test.solve
-			puts test.to_s
 			self.populate test.to_s and return if test.solved?
 		end
 	end

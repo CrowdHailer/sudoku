@@ -88,12 +88,9 @@ describe Grid do
 
 	 	it 'should not be easily solvable' do
 	 		grid.solve
-	 		expect(grid.to_s).to eq(puzzle)
+	 		expect(grid.to_s).to eq("812753649943682175675491283154237896369845721287169534521974368438526917796318452")
 	 	end
 
-	 	# it 'should be  solvable' do
-	 	# 	grid.solve
-	 	# 	expect(grid.to_s).to eq(1)
-	 	# end
+
 	end
 end
