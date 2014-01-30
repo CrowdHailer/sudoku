@@ -21,11 +21,11 @@ describe Grid do
 			expect(grid.cells[0].value).to eq(1)
 		end
 
-		# it 'it should be solvable' do
-		# 	grid.solve
-		# 	puts grid.inspect
-		# 	expect(grid.inspect).to eq(1)
-		# end
+		it 'it should be solvable' do
+			grid.solve
+			puts grid.inspect
+			expect(grid.inspect).to eq(1)
+		end
 
 	 end
 

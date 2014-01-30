@@ -8,32 +8,27 @@ class Grid
 	attr_reader :cells
 
 	def populate puzzle
-		cells.zip(puzzle.chars) do |cell, value|
+		self and cells.zip(puzzle.chars) do |cell, value|
 			cell.value = (value != "0") ? value.to_i : nil
 		end
-		true
+		
 	end
 
-	def solve
-		ongoing = true
-		while !solved? && ongoing
-			starting_number = unsolved_count
-			unsolved_cells.each { |cell| cell.update }
-			progress = starting_number - unsolved_count
-			ongoing = (progress != 0)
-		end
-		try_harder unless solved?
+	def solve starting_number = unsolved_count
+		unsolved_cells.each { |cell| cell.update }
+		return if solved?
+		starting_number > unsolved_count ? solve : try_harder
 	end
 
 	def try_harder
 		blank_cell = unsolved_cells.sort_by {|i| i.remaining_values.count}[0]
-		candidates = blank_cell.remaining_values.dup
-		candidates.each do |candidate|
+		candidates = blank_cell.remaining_values
+		candidates.shuffle.each do |candidate|
 			blank_cell.value = candidate
 			test = Grid.new
 			test.populate self.to_s
 			test.solve
-			self.populate test.to_s and return if test.solved?
+			!self.populate test.to_s and return if test.solved?
 		end
 	end
 
