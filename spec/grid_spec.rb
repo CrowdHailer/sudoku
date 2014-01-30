@@ -21,9 +21,11 @@ describe Grid do
 			expect(grid.cells[0].value).to eq(1)
 		end
 
-		it 'should run stop running if not possible to solve' do
-			expect(grid.solve).to eq(false)
-		end
+		# it 'it should be solvable' do
+		# 	grid.solve
+		# 	puts grid.inspect
+		# 	expect(grid.inspect).to eq(1)
+		# end
 
 	 end
 
@@ -67,12 +69,31 @@ describe Grid do
 		end
 
 		it 'should be possible to inspect' do
-			expect(grid.inspect).to eq("-------------------\n| ,1,5, , ,3, , ,2|\n| , , ,1, , ,9, ,6|\n|2,7, , ,6,8,4,3, |\n|4,9, , , ,2, ,1,7|\n|5, ,1, ,4, ,3,8, |\n| , ,3,9, ,5, , , |\n|9, , , ,8,1, ,4, |\n|8,6, , ,7, , ,2,5|\n| ,3,7,2, ,4,6, , |\n-------------------")
+			expect(grid.inspect).to eq("\n+-----------------+\n| ,1,5, , ,3, , ,2|\n| , , ,1, , ,9, ,6|\n|2,7, , ,6,8,4,3, |\n|4,9, , , ,2, ,1,7|\n|5, ,1, ,4, ,3,8, |\n| , ,3,9, ,5, , , |\n|9, , , ,8,1, ,4, |\n|8,6, , ,7, , ,2,5|\n| ,3,7,2, ,4,6, , |\n+-----------------+")
 		end
 
 		it 'should be able to solve the puzzle' do
 			grid.solve
 			expect(grid.to_s).to eq("615493872348127956279568431496832517521746389783915264952681743864379125137254698")
 		end
+	end
+
+	context 'hard solvable grid'do
+		let(:puzzle) { '800000000003600000070090200050007000000045700000100030001000068008500010090000400' }
+		let(:grid) do
+	 		this_grid = Grid.new
+	 		this_grid.populate(puzzle)
+	 		this_grid
+	 	end
+
+	 	it 'should not be easily solvable' do
+	 		grid.solve
+	 		expect(grid.to_s).to eq(puzzle)
+	 	end
+
+	 	# it 'should be  solvable' do
+	 	# 	grid.solve
+	 	# 	expect(grid.to_s).to eq(1)
+	 	# end
 	end
 end

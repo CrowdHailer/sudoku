@@ -38,7 +38,7 @@ class Cell
 
 	def update
 		candidates = remaining_values.count
-		raise 'No possible values left' if candidates == 0
+		# raise 'No possible values left' if candidates == 0
 		self.value = remaining_values.first if candidates == 1
 	end
 

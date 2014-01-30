@@ -63,9 +63,9 @@ describe Cell do
 		expect(cell4.remaining_values).to eq((1..9).to_a - [7])
 	end
 
-	it 'should raise and error if no values remain' do
-		cell0.stub(:remaining_values){ [] }
-		expect{ cell0.update }.to raise_error
-	end
+	# it 'should raise and error if no values remain' do
+	# 	cell0.stub(:remaining_values){ [] }
+	# 	expect{ cell0.update }.to raise_error
+	# end
 
 end
